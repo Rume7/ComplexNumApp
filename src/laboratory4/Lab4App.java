@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author E238958
+ * @author Jerry Momodu
  */
 public class Lab4App {
 

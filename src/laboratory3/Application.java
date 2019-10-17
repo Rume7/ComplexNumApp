@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author E238958
+ * @author Jerry Momodu
  */
 public class Application {
 

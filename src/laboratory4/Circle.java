@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author E238958
+ * @author Jerry Momodu
  */
 public class Circle extends JPanel {
 
