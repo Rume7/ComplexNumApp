@@ -11,7 +11,8 @@ public class TaxApplication {
     public static void main(String[] args) {
         
         FilingStatusView statusView = new FilingStatusView();
-        int statusChosen = statusView.createTaxableIncomeView();
+        int statusChosen = statusView.createFilingStatusView();
+        
         TaxableIncomeView incomeView = new TaxableIncomeView();
         double income = incomeView.createTaxableIncomeView();      
         
