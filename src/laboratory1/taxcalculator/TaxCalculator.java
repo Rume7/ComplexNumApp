@@ -17,7 +17,7 @@ public class TaxCalculator {
 
     public TaxCalculator() {
     }
-    
+        
     public double calculator(int status, double income) {
         this.status = status;
         this.taxableIncome = income;

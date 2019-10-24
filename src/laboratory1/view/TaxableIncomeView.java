@@ -15,7 +15,7 @@ public class TaxableIncomeView {
     
         double taxableIncome = Double.parseDouble(incomeEntered);
         
-        while (taxableIncome < 0 || taxableIncome > 5) {
+        while (taxableIncome < 0) {
             incomeEntered
                     = JOptionPane.showInputDialog(null, title, "Input", JOptionPane.QUESTION_MESSAGE);
         }

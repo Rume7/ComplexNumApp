@@ -18,7 +18,9 @@ public class FilingStatusView {
      *
      * @return the statusChosen
      */
-    public int createFilingStatusView() {
+    public int[] createFilingStatusView() {
+        int[] statuses = new int[2];
+
         String statusChosen
                 = JOptionPane.showInputDialog(null, title, "Input", JOptionPane.QUESTION_MESSAGE);
 
@@ -26,31 +28,39 @@ public class FilingStatusView {
 
         // Create two scenarios. 1. if the state is true and the status is one
         // 2. if state is true and statuses are two.
-        while (state) {
+        while (!state) {
             statusChosen
                     = JOptionPane.showInputDialog(null, title, "Input", JOptionPane.QUESTION_MESSAGE);
         }
         if (state && statusChosen.length() == 1) {
-            return Integer.parseInt(statusChosen) ;
+            statuses[0] = Integer.parseInt(statusChosen);
         } else {
-            // Process two different status.
+            // Process two different statuses.
+            if (statusChosen.trim().length() > 2) {
+                String firstStatus = statusChosen.trim().charAt(0) + "";
+                String secondStatus = statusChosen.trim().charAt(statusChosen.length() - 1) + "";
+                
+                if (verifyStatusChosen(firstStatus) && verifyStatusChosen(secondStatus)) {
+                    statuses[0] = Integer.parseInt(firstStatus);
+                    statuses[1] = Integer.parseInt(secondStatus);
+                }
+            }
         }
-        int status = Integer.parseInt(statusChosen);
-        return status;
+        return statuses;
     }
 
     private boolean verifyStatusChosen(String statusChosen) {
         if (statusChosen.length() == 1) {
             return isANumber(statusChosen);
         } else if (statusChosen.trim().length() > 2) {
-            String firstStatus = statusChosen.charAt(0) +"";
-            String secondStatus = statusChosen.charAt(statusChosen.length()-1) + "";
-            
+            String firstStatus = statusChosen.charAt(0) + "";
+            String secondStatus = statusChosen.charAt(statusChosen.length() - 1) + "";
+
             return (isANumber(firstStatus) && isANumber(secondStatus));
         }
         return false;
     }
-    
+
     private boolean isANumber(String str) {
         int value = Integer.parseInt(str);
         for (int i = 0; i <= 5; i++) {
@@ -59,6 +69,6 @@ public class FilingStatusView {
             }
         }
         return false;
-        
+
     }
 }
