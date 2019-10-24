@@ -12,16 +12,14 @@ import laboratory1.status.SingleIncomeTax;
  */
 public class TaxCalculator {
     
-    private int status;
+    private double totalTax;
     private double taxableIncome;
 
     public TaxCalculator() {
     }
         
     public double calculator(int status, double income) {
-        this.status = status;
         this.taxableIncome = income;
-        double totalTax = 0;
         switch (status) {
             case 0:
                 // Output filling status
@@ -52,6 +50,6 @@ public class TaxCalculator {
     
     @Override
     public String toString() {
-        return "Tax = ";
+        return "Tax = " + this.totalTax;
     }
 }
