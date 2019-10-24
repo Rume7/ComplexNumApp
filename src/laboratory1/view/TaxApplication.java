@@ -18,6 +18,12 @@ public class TaxApplication {
         TaxableIncomeView incomeView = new TaxableIncomeView();
         double income = incomeView.createTaxableIncomeView();      
         
+        // Handle the case when status and income is zero
+        if (status1 == 0 && income < 1.0) {
+            TaxTableView.getTaxTableInstance();
+            return ;
+        }
+        
         TaxCalculator taxCalculator = new TaxCalculator();
         double taxAccrued1 = taxCalculator.calculator(status1, income);
         double taxAccrued2 = taxCalculator.calculator(status2, income);
